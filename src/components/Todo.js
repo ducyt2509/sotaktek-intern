@@ -14,9 +14,11 @@ const Todo = ({ todo, handleCheckBox }) => {
     return (
         <div >
             <div className='w-full d-flex justify-between align-center border-bottom todo' >
-                <div>
-                    <input type="checkbox" id={`todo_${todo.id}`} onChange={() => handleCheckBox(todo.id)} />
-                    <label htmlFor={`todo_${todo.id}`} > {todo.name}</label>
+
+                <div class="checkbox-container">
+                    <input type="checkbox" className="checkbox-input" id={`todo_${todo.id}`} onChange={() => handleCheckBox(todo.id)} />
+                    <label htmlFor={`todo_${todo.id}`} className="checkbox-label"></label>
+                    <span class="checkbox-text">{todo.name}</span>
                 </div>
                 <div className='group-btn'>
                     <button className='btn bg-detail' onClick={() => setIsShow(isShow => !isShow)} >Details</button>

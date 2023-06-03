@@ -155,16 +155,82 @@ select {
 	position: relative;
 }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
+.checkbox-container {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	cursor: pointer;
+	height: 100%;
+}
+.checkbox-container label {
+	margin: 0;
+}
+.checkbox-input {
+	display: none;
+}
+
+.checkbox-label {
+	position: relative;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border: 1px solid gray;
+}
+
+.checkbox-label:before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 6px;
+	height: 18px;
+	border-bottom: 2px solid #000;
+	border-right: 2px solid #000;
+	opacity: 0;
+	transform-origin: bottom left;
+	transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.checkbox-input:checked + .checkbox-label:before {
+	opacity: 1;
+	transform: translate(-50%, -50%) rotate(45deg) translateX(-4px) translateY(-10px);
+}
+
+.checkbox-text {
+	font-size: 14px;
+}
+
+@media only screen and (max-width: 600px) {
+	.container {
+		width: 90vw;
+		margin: 10px auto;
+	}
+	.container.d-flex {
+		flex-direction: column;
+	}
+	.d-flex > * {
+		width: 100%;
+	}
+	.w-60 {
+		border: none;
+		border-top: 1px gray solid;
+	}
+	.group-btn {
+		display: flex;
+	}
+	.todo.d-flex {
+		display: flex;
+		flex-direction: column;
+		justify-content: start;
+		gap: 15px;
+	}
+}
 @media only screen and (min-width: 600px) {
 	.container {
 		width: 90vw;
-	}
-	.responsive-xs {
-		flex-direction: column;
-	}
-	.responsive-xs .col-2 {
-		width: 100%;
+		min-height: 80vh;
 	}
 }
 
@@ -173,6 +239,7 @@ select {
 	.container {
 		width: 80vh;
 	}
+	
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
